@@ -7,6 +7,12 @@ body {
 }
 
 h1 {
+  transition: 0.5s;
   font-family: "Yuji Hentaigana Akari";
   font-size: 160px;
+}
+h1:hover {
+  transition: 1s;
+  opacity: 0.1;
+  color: aqua;
 }
