@@ -211,28 +211,32 @@
 
     <section id="contact">
       <h2>Contact me</h2>
-      <form action="mailto:basswoman4@gmail.com" method="POST" enctype="multipart/form-data"
-      name="EmailForm">
+      <form name="submit-to-google-sheet">>
         <input
           name="name"
           type="text"
           class="feedback-input"
           placeholder="Name"
+          required
         />
         <input
           name="email"
           type="text"
           class="feedback-input"
           placeholder="Email"
+          required
         />
         <textarea
           name="text"
           class="feedback-input"
           placeholder="Comment"
+          required
         ></textarea>
-        <!-- <input type="submit" value="SUBMIT" /> -->
         <button class="submit">submit</button>
+        
       </form>
+
+     <h3 id="msg"></h3>
 
       <footer class="footer">
         <a href="https://www.facebook.com/ksenia.vasilyeva.3">
@@ -249,5 +253,24 @@
         /></a>
       </footer>
     </section>
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyouAVLZcTY41y29EeH_TUGo6HLJcYutmgowFMXNfIaUEFsYMW_KA3SrArGA5l3G2U4/exec'
+      const form = document.forms['submit-to-google-sheet']
+      const msg = document.getElementById('msg')
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            msg.innerHTML = 'Message Sent Successfully'
+            setTimeout(function(){
+              msg.innerHTML = ''
+            }, 5000)
+            form.reset()
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
   </body>
 </html>
+
+
