@@ -1,0 +1,67 @@
+@media screen and (max-width: 1400px) {
+}
+
+@media screen and (max-width: 1200px) {
+  #intro {
+    background-position: bottom 1400px right 400px;
+    background-size: 70%;
+    padding: 3rem;
+  }
+  h1 {
+    font-weight: 200;
+    font-size: 2.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-weight: 100;
+    font-size: 1.5rem;
+  }
+  .list-of-things {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* margin-top: 1rem; */
+  }
+  .list-of-things h2 {
+    margin-top: 1rem;
+  }
+
+  #bass {
+    background-color: rgba(4, 7, 12, 255);
+    background-image: url("/assets/bg2.jpg");
+    background-position: right 800px bottom 0px;
+    background-attachment: fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: rgb(240, 240, 240);
+  }
+
+  #bass h2 {
+    font-family: inherit;
+    padding-top: 40px;
+    margin-bottom: 30px;
+  }
+  .container-bass {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 4vh;
+    margin-right: 10vh;
+    list-style: none;
+  }
+
+  .bass-class {
+    width: 63%;
+    float: right;
+    text-align: center;
+  }
+
+  .arrow {
+    height: 30px;
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+}
