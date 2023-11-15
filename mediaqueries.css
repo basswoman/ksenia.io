@@ -5,7 +5,6 @@
   #intro {
     background-position: bottom 1400px right 400px;
     background-size: 70%;
-    padding: 3rem;
   }
   h1 {
     font-weight: 200;
@@ -29,7 +28,7 @@
 
   #bass {
     background-color: rgba(4, 7, 12, 255);
-    background-image: url("/assets/bg2.jpg");
+    background-image: url('/assets/bg2.jpg');
     background-position: right 800px bottom 0px;
     background-attachment: fixed;
     background-size: contain;
