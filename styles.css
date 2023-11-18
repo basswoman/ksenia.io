@@ -1,6 +1,6 @@
 /* Main Stuff */
 
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Nunito+Sans:wght@200;300;400&family=Yuji+Boku&family=Yuji+Hentaigana+Akari&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Nunito+Sans:wght@200;300;400&family=Yuji+Boku&family=Yuji+Hentaigana+Akari&display=swap");
 
 * {
   margin: 0;
@@ -16,8 +16,8 @@ html {
 body {
   min-height: 100%;
   color: #f3d0fc;
-  font-family: 'Lexend', sans-serif;
-  font-weight: 100;
+  font-family: "Lexend", sans-serif;
+  font-weight: 200;
 }
 
 section {
@@ -33,7 +33,7 @@ a {
 #intro {
   padding: 3rem;
   background-color: rgb(13, 13, 13);
-  background-image: url('/assets/bg.jpg');
+  background-image: url("/assets/bg.jpg");
   background-position: bottom;
   background-attachment: fixed;
   background-size: contain;
@@ -153,7 +153,7 @@ h2 {
 
 #bass {
   background-color: rgba(4, 7, 12, 255);
-  background-image: url('/assets/bg2.jpg');
+  background-image: url("/assets/bg2.jpg");
   background-position: right 800px bottom 0px;
   background-attachment: fixed;
   background-size: contain;
@@ -272,7 +272,7 @@ p {
 
 #contact {
   background-color: rgba(4, 7, 12, 255);
-  background-image: url('/assets/bg_contact.JPG');
+  background-image: url("/assets/bg_contact.JPG");
   background-position: right 0px bottom 0px;
   background-attachment: fixed;
   background-size: cover;
