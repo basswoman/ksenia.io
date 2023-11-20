@@ -8,16 +8,46 @@
   box-sizing: border-box;
 }
 
+:root,
 html {
+  --base-font-size: 1rem;
+
   scroll-behavior: smooth;
   height: 100%;
+  font-size: var(--base-font-size);
+  background: #000000;
+}
+
+@media screen and (min-width: 500px) {
+  :root {
+    font-size: calc(1.25 * var(--base-font-size));
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  :root {
+    font-size: calc(1.5 * var(--base-font-size));
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  :root {
+    font-size: calc(1.75 * var(--base-font-size));
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  :root {
+    font-size: calc(2 * var(--base-font-size));
+  }
 }
 
 body {
   min-height: 100%;
   color: #f3d0fc;
   font-family: "Lexend", sans-serif;
-  font-weight: 200;
+  font-weight: 100;
+  font-size: 1.6rem;
 }
 
 section {
@@ -30,20 +60,26 @@ a {
   color: rgb(240, 240, 240);
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 #intro {
-  padding: 3rem;
+  padding: 1rem;
   background-color: rgb(13, 13, 13);
   background-image: url("/assets/bg.jpg");
   background-position: bottom;
   background-attachment: fixed;
-  background-size: contain;
+  background-size: 150%;
   background-repeat: no-repeat;
   color: #f3d0fc;
 }
 
 h1 {
   font-weight: 100;
-  font-size: 5rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
   background: linear-gradient(121deg, #ad00ff 0%, #0c0056 100%),
     linear-gradient(121deg, #fa00ff 0%, rgba(0, 255, 71, 0) 100%),
@@ -60,6 +96,13 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
+#intro h2 {
+  font-weight: 100;
+  font-size: 1.5rem;
+  margin-block-end: 1rem;
+  color: #f3d0fc;
+}
+
 @keyframes moveRight {
   from {
     background-position: 0% center;
@@ -69,9 +112,44 @@ h1 {
   }
 }
 
-.list-of-things h2 {
-  cursor: crosshair;
+nav ul {
+  list-style: none;
 }
+
+nav li {
+  font-size: 1.5rem;
+  border-block-end: 1px solid;
+  padding-block: 1rem;
+}
+
+nav li:last-child {
+  border-block-end: none;
+}
+
+.section-background {
+  position: relative;
+}
+
+/* .section-background::before,
+.section-background::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 2;
+  width: 400px;
+  height: 100%;
+  top: 0;
+}
+
+.section-background::before {
+  background: linear-gradient(90deg, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  left: 0;
+}
+
+.section-background::after {
+  background: linear-gradient(270deg, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  right: 0;
+} */
 
 .glowing-list-1 {
   animation: moveRight 4s linear infinite;
@@ -132,23 +210,6 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
-h2 {
-  font-weight: 100;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #f3d0fc;
-}
-.list-of-things {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-
-  /* margin-top: 1rem; */
-}
-.list-of-things h2 {
-  margin-top: 1rem;
-}
-
 /* Bass section */
 
 #bass {
@@ -184,20 +245,6 @@ h2 {
 .arrow {
   height: 30px;
   margin-bottom: 50px;
-}
-
-nav ul {
-  list-style: none;
-}
-
-nav li {
-  font-size: 3rem;
-  border-block-end: 1px solid;
-  padding-block: 2rem;
-}
-
-nav li:last-child {
-  border-block-end: none;
 }
 
 #sound {
