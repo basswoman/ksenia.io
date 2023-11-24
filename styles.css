@@ -53,12 +53,20 @@ h3 {
   font-weight: 100;
 }
 
+h3 {
+  font-size: 1.5rem;
+  margin-block-end: 1rem;
+  text-align: center;
+}
+
 section {
   height: 100vh;
   position: relative;
 }
 
 section:not(#intro) h2 {
+  font-size: 1.5rem;
+  margin-block-end: 1rem;
   border-width: 1px;
   border-style: solid;
   border-image: linear-gradient(
@@ -83,7 +91,6 @@ section::before {
   z-index: -1;
   inset: 0;
   background-position: 50% 0;
-  background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   transition: opacity 1s;
@@ -98,12 +105,11 @@ section.in-view .content {
 }
 
 /* Intro Section */
-#intro {
+
+#intro::before {
   background-image: url('/assets/bg.jpg');
-  background-position: 30% bottom;
-  background-attachment: fixed;
-  background-size: min(175%, 1200px);
-  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: min(120%, 1200px);
   color: #f3d0fc;
   transition: background-position 1s;
 }
@@ -155,27 +161,6 @@ nav li:last-child {
 .section-background {
   position: relative;
 }
-
-/* .section-background::before,
-.section-background::after {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: 2;
-  width: 400px;
-  height: 100%;
-  top: 0;
-}
-
-.section-background::before {
-  background: linear-gradient(90deg, rgb(0, 0, 0), rgba(0, 0, 0, 0));
-  left: 0;
-}
-
-.section-background::after {
-  background: linear-gradient(270deg, rgb(0, 0, 0), rgba(0, 0, 0, 0));
-  right: 0;
-} */
 
 .glowing-list-1 {
   animation: moveRight 4s linear infinite;
@@ -240,9 +225,38 @@ nav li:last-child {
 #bass {
 }
 
+#bass .iframe-aspect-ratio {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-block-end: 56.25%;
+  margin-block-end: 2rem;
+}
+
+#bass .iframe-aspect-ratio iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
 #bass::before {
   background-image: url('/assets/bg2.jpg');
   color: rgb(240, 240, 240);
+}
+
+#bass .more-videos {
+  display: block;
+  margin-block-end: 2rem;
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid #f3d0fc;
+}
+
+#bass .spotify iframe {
+  width: 100%;
+  height: 300px;
 }
 
 .container-bass {
@@ -436,10 +450,6 @@ textarea {
 @media screen and (min-width: 1000px) {
   :root {
     font-size: calc(1.5 * var(--base-font-size));
-  }
-
-  #intro {
-    background-position: 100% bottom;
   }
 }
 
