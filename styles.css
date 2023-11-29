@@ -60,11 +60,16 @@ h3 {
 }
 
 section {
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   position: relative;
+  padding: 1rem;
 }
 
 section:not(#intro) h2 {
+  position: relative;
+  z-index: 1;
   font-size: 1.5rem;
   margin-block-end: 1rem;
   border-width: 1px;
@@ -80,7 +85,8 @@ section:not(#intro) h2 {
 }
 
 section .content {
-  padding: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* We're going to use the :before pseudo element for the section's background image. */
@@ -88,7 +94,7 @@ section::before {
   content: '';
   display: block;
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   inset: 0;
   background-position: 50% 0;
   background-size: cover;
@@ -223,6 +229,14 @@ nav li:last-child {
 
 /* Bass section */
 #bass {
+  background-color: rgba(4, 7, 12, 255);
+}
+
+#bass::before {
+  background-size: contain;
+  background-position: -80px 20px;
+  background-image: url('/assets/bg2.jpg');
+  color: rgb(240, 240, 240);
 }
 
 #bass .iframe-aspect-ratio {
@@ -239,11 +253,6 @@ nav li:last-child {
   height: 100%;
   left: 0;
   top: 0;
-}
-
-#bass::before {
-  background-image: url('/assets/bg2.jpg');
-  color: rgb(240, 240, 240);
 }
 
 #bass .more-videos {
@@ -445,11 +454,30 @@ textarea {
   :root {
     font-size: calc(1.25 * var(--base-font-size));
   }
+
+  #bass .content {
+    align-self: flex-end;
+    max-width: calc(500px - 2rem);
+  }
 }
 
 @media screen and (min-width: 1000px) {
   :root {
     font-size: calc(1.5 * var(--base-font-size));
+  }
+
+  #bass .content {
+    max-width: 50%;
+  }
+
+  #bass .videos {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  #bass .videos > :nth-child(1),
+  #bass .videos > :nth-child(2) {
+    flex-grow: 1;
   }
 }
 
