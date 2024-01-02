@@ -176,38 +176,97 @@
         </div>
       </div>
 
-     
-        <div class="small-window">
-          <iframe
-            style="border: 0; width: 100%; height: 42px"
-            src="https://bandcamp.com/EmbeddedPlayer/album=1348326211/size=small/bgcol=ffffff/linkcol=333333/transparent=true/"
-            seamless
-            ><a href="https://kseniia.bandcamp.com/album/ambient"
-              >Ambient by Kseniia</a
-            ></iframe
-          >
-        </div>
-        <div class="small-window">
-          <iframe
-            style="border: 0; width: 100%; height: 42px"
-            src="https://bandcamp.com/EmbeddedPlayer/album=4063065433/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/"
-            seamless
-            ><a href="https://kseniia.bandcamp.com/album/microtonal"
-              >Microtonal by Kseniia</a
-            ></iframe
-          >
-        </div>
+      <div class="small-window">
+        <iframe
+          style="border: 0; width: 100%; height: 42px"
+          src="https://bandcamp.com/EmbeddedPlayer/album=1348326211/size=small/bgcol=ffffff/linkcol=333333/transparent=true/"
+          seamless
+          ><a href="https://kseniia.bandcamp.com/album/ambient"
+            >Ambient by Kseniia</a
+          ></iframe
+        >
+      </div>
+      <div class="small-window">
+        <iframe
+          style="border: 0; width: 100%; height: 42px"
+          src="https://bandcamp.com/EmbeddedPlayer/album=4063065433/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/"
+          seamless
+          ><a href="https://kseniia.bandcamp.com/album/microtonal"
+            >Microtonal by Kseniia</a
+          ></iframe
+        >
       </div>
 
-      <a href="#contact">
+      <!-- <a href="#contact">
         <img
           src="/assets/arrow-down.png"
           alt=""
           class="arrow"
           href="#contact"
           style="align-items: center"
-      /></a>
+      /></a> -->
     </section>
-    <script src="/script.js"></script>
+
+    <section id="contact">
+      <h2>Contact me</h2>
+      <form name="submit-to-google-sheet">
+        <input
+          name="name"
+          type="text"
+          class="feedback-input"
+          placeholder="Name"
+          required
+        />
+        <input
+          name="email"
+          type="text"
+          class="feedback-input"
+          placeholder="Email"
+          required
+        />
+        <textarea
+          name="text"
+          class="feedback-input"
+          placeholder="Comment"
+          required
+        ></textarea>
+        <button class="submit">submit</button>
+      </form>
+
+      <h3 id="msg"></h3>
+
+      <div class="social-links">
+        <a href="https://www.facebook.com/ksenia.vasilyeva.3">
+          <img src="assets/fb.png" alt="facebook" 
+        /></a>
+        <a href="https://www.instagram.com/mrs.esper/">
+          <img src="assets/ig.png" alt="instagram" 
+        /></a>
+        <a href="https://www.linkedin.com/in/ksenia-vasileva/">
+          <img src="assets/li.png" alt="linkedin" 
+        /></a>
+        <a href="https://www.youtube.com/@KsuBass/videos">
+          <img src="assets/yt.png" alt="youtube" 
+        /></a>
+      </footer>
+    </section>
+    <script>
+      const scriptURL =
+        'https://script.google.com/macros/s/AKfycbyouAVLZcTY41y29EeH_TUGo6HLJcYutmgowFMXNfIaUEFsYMW_KA3SrArGA5l3G2U4/exec';
+      const form = document.forms['submit-to-google-sheet'];
+      const msg = document.getElementById('msg');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then(response => {
+            msg.innerHTML = 'Message Sent Successfully';
+            setTimeout(function () {
+              msg.innerHTML = '';
+            }, 5000);
+            form.reset();
+          })
+          .catch(error => console.error('Error!', error.message));
+      });
+    </script>
   </body>
 </html>
