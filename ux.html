@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="styles.css" />
 
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Nunito+Sans:wght@200;300;400&family=Yuji+Boku&family=Yuji+Hentaigana+Akari&display=swap');
+
       body {
         background-color: rgb(13, 13, 13);
         display: grid;
@@ -21,18 +23,19 @@
 
       .drum {
         color: rgba(255, 255, 255, 1);
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 100;
         width: 100px;
         height: 100px;
-        background: linear-gradient(
-          to left,
-          rgb(123, 31, 162),
-          rgb(103, 58, 183),
-          rgb(95, 7, 37),
-          rgb(123, 31, 162)
-        );
+        font-family: 'Lexend', sans-serif;
         /* background-color: rgb(137, 95, 211); */
+        background: linear-gradient(121deg, #ad00ff 0%, #0c0056 100%),
+          linear-gradient(121deg, #fa00ff 0%, rgba(0, 255, 71, 0) 100%),
+          linear-gradient(127deg, #00f0ff 0%, #a80000 100%),
+          radial-gradient(107% 142% at 15% 104%, #f3d0fc 0%, #1700a4 100%),
+          radial-gradient(100% 100% at 50% 0%, #7300a9 0%, #00ffe0 100%),
+          radial-gradient(100% 100% at 50% 0%, #7300a9 0%, #00ffe0 100%),
+          linear-gradient(127deg, #b7d500 0%, #2200aa 100%);
         border: none;
         transition: all 0.3s;
         cursor: pointer;
@@ -45,30 +48,27 @@
       .grid-container {
         justify-content: center;
         display: grid;
-        grid-template-columns: auto auto auto auto auto;
+        grid-template-columns: auto auto auto auto;
         padding: 20px;
         align-items: center;
       }
     </style>
   </head>
   <body>
-    <h1>Sampled Bike</h1>
+    <h1>UX Sounds</h1>
     <div class="grid-container">
-      <button class="q drum" id="w">q</button>
-      <button class="w drum" id="a">w</button>
-      <button class="e drum" id="s">e</button>
-      <button class="r drum" id="d">r</button>
-      <button class="t drum" id="j">t</button>
-      <button class="a drum" id="k">a</button>
-      <button class="s drum" id="s">s</button>
-      <button class="d drum" id="d">d</button>
-      <button class="f drum" id="f">f</button>
-      <button class="g drum" id="g">g</button>
-      <button class="z drum" id="z">z</button>
-      <button class="x drum" id="x">x</button>
-      <button class="c drum" id="c">c</button>
-      <button class="v drum" id="v">v</button>
-      <button class="b drum" id="b">b</button>
+      <button class="positive-feedback drum" id="q">positive-feedback</button>
+      <button class="negative-feedback drum" id="a">negative-feedback</button>
+      <button class="notification drum" id="s">notification</button>
+      <button class="thinking drum" id="d">thinking</button>
+      <button class="call-incoming drum" id="k">call-incoming</button>
+      <button class="call-accept drum" id="s">call-accept</button>
+      <button class="call-outgoing drum" id="d">call-outgoing</button>
+      <button class="call-end drum" id="f">call-end</button>
+      <button class="activated-action drum" id="z">activated-action</button>
+      <button class="no-connection drum" id="x">no-connection</button>
+      <button class="door-warning drum" id="c">door-warning</button>
+      <button class="parking-assist drum" id="v">parking-assist</button>
     </div>
     <p>
       <a class="item" href="index.html#sound">back to main</a>
@@ -107,79 +107,64 @@
         //this function will pair each sound to a specific key/ button using switch statement
         function makeSound(key) {
           switch (key) {
-            case 'q':
-              var crash = new Audio('sounds/top1.wav');
+            case 'positive-feedback':
+              var crash = new Audio('sounds/ux/Positive_feedback.wav');
               crash.play();
               break;
 
-            case 'w':
-              var kick = new Audio('sounds/top2.wav');
+            case 'negative-feedback':
+              var kick = new Audio('sounds/ux/Negative_feedback.wav');
               kick.play();
               break;
 
-            case 'e':
-              var snare = new Audio('sounds/top3.wav');
+            case 'notification':
+              var snare = new Audio('sounds/ux/Notification.wav');
               snare.play();
               break;
 
-            case 'r':
-              var tom1 = new Audio('sounds/top4.wav');
+            case 'thinking':
+              var tom1 = new Audio('sounds/ux/Thinking.wav');
               tom1.play();
               break;
 
-            case 't':
-              var tom2 = new Audio('sounds/top5.wav');
+            case 'call-incoming':
+              var tom2 = new Audio('sounds/ux/Call_incoming.wav');
               tom2.play();
               break;
 
-            case 'a':
-              var tom3 = new Audio('sounds/mid1.wav');
+            case 'call-accept':
+              var tom3 = new Audio('sounds/ux/Call_accept.wav');
               tom3.play();
               break;
 
-            case 's':
-              var tom4 = new Audio('sounds/mid2.wav');
+            case 'call-outgoing':
+              var tom4 = new Audio('sounds/ux/Call_outgoing.wav');
               tom4.play();
               break;
 
-            case 'd':
-              var tom1 = new Audio('sounds/mid3.wav');
+            case 'call-end':
+              var tom1 = new Audio('sounds/ux/Call_end.wav');
               tom1.play();
               break;
 
-            case 'f':
-              var tom2 = new Audio('sounds/mid4.wav');
+            case 'activated-action':
+              var tom2 = new Audio('sounds/ux/Activated_action.wav');
               tom2.play();
               break;
 
-            case 'g':
-              var tom3 = new Audio('sounds/mid5.wav');
+            case 'no-connection':
+              var tom3 = new Audio('sounds/ux/No_connection.wav');
               tom3.play();
               break;
 
-            case 'z':
-              var tom4 = new Audio('sounds/kick1.wav');
+            case 'door-warning':
+              var tom4 = new Audio('sounds/ux/Door_open_warning.wav');
               tom4.play();
               break;
 
-            case 'x':
-              var tom1 = new Audio('sounds/kick2.wav');
+            case 'parking-assist':
+              var tom1 = new Audio('sounds/ux/Parking_assist.wav');
               tom1.play();
-              break;
-
-            case 'c':
-              var tom2 = new Audio('sounds/kick3.wav');
-              tom2.play();
-              break;
-
-            case 'v':
-              var tom3 = new Audio('sounds/kick4.wav');
-              tom3.play();
-              break;
-
-            case 'b':
-              var tom4 = new Audio('sounds/kick5.wav');
-              tom4.play();
               break;
 
             default:

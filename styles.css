@@ -219,7 +219,21 @@ nav li:last-child {
     rgb(20, 173, 50),
     rgb(103, 58, 183),
     rgb(131, 21, 89),
-    rgb(31, 202, 53)
+    rgb(20, 173, 50)
+  );
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.glowing-list-5 {
+  animation: moveRight 3s linear infinite;
+  background: linear-gradient(
+    to right,
+    rgb(173, 20, 173),
+    rgb(103, 58, 183),
+    rgb(131, 21, 89),
+    rgb(202, 31, 139)
   );
   background-size: 200%;
   background-clip: text;
@@ -303,7 +317,9 @@ p {
   padding: 4px;
   font-size: 1.2rem;
 }
-
+#sound h2 {
+  color: #f3d0fc;
+}
 #sound h3 {
   font-size: 1.5rem;
   padding-bottom: 10px;

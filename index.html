@@ -159,9 +159,15 @@
           <div class="sound-box project-links">
             <ul>
               <li>
-                <a href="#" class="glowing-list-3"
+                <a
+                  href="https://ide.csound.com/editor/lmLHgV0qpqUUxLSvGETq"
+                  class="glowing-list-3"
+                  target="_blank"
                   >Generative Music in CSound</a
                 >
+              </li>
+              <li>
+                <a href="/ux.html" class="glowing-list-2">UX Sound Design</a>
               </li>
               <li>
                 <a href="/bike.html" class="glowing-list-4"
@@ -170,34 +176,33 @@
               </li>
               <li>
                 <a
-                  class="glowing-list-2"
+                  class="glowing-list-5"
                   href="https://www.youtube.com/playlist?list=PLnggjYkbmAYQJW-3J2xver7lKZX9fLEfj"
-                  >Me playing different modular synths</a
+                  target="_blank"
+                  >Modular synths jams</a
+                >
+              </li>
+              <li>
+                <iframe
+                  style="border: 0; width: 400px; height: 274px"
+                  src="https://bandcamp.com/EmbeddedPlayer/album=1348326211/size=large/bgcol=ffffff/linkcol=7137dc/artwork=small/transparent=true/"
+                  seamless
+                  ><a href="https://kseniia.bandcamp.com/album/ambient"
+                    >Ambient by Kseniia</a
+                  ></iframe
+                >
+
+                <iframe
+                  style="border: 0; width: 400px; height: 274px"
+                  src="https://bandcamp.com/EmbeddedPlayer/album=4063065433/size=large/bgcol=ffffff/linkcol=7137dc/artwork=small/transparent=true/"
+                  seamless
+                  ><a href="https://kseniia.bandcamp.com/album/microtonal"
+                    >Microtonal by Kseniia</a
+                  ></iframe
                 >
               </li>
             </ul>
           </div>
-        </div>
-
-        <div class="small-window">
-          <iframe
-            style="border: 0; width: 100%; height: 42px"
-            src="https://bandcamp.com/EmbeddedPlayer/album=1348326211/size=small/bgcol=ffffff/linkcol=333333/transparent=true/"
-            seamless
-            ><a href="https://kseniia.bandcamp.com/album/ambient"
-              >Ambient by Kseniia</a
-            ></iframe
-          >
-        </div>
-        <div class="small-window">
-          <iframe
-            style="border: 0; width: 100%; height: 42px"
-            src="https://bandcamp.com/EmbeddedPlayer/album=4063065433/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/"
-            seamless
-            ><a href="https://kseniia.bandcamp.com/album/microtonal"
-              >Microtonal by Kseniia</a
-            ></iframe
-          >
         </div>
       </div>
     </section>
@@ -252,17 +257,17 @@
         'https://script.google.com/macros/s/AKfycbyouAVLZcTY41y29EeH_TUGo6HLJcYutmgowFMXNfIaUEFsYMW_KA3SrArGA5l3G2U4/exec';
       const form = document.forms['submit-to-google-sheet'];
       const msg = document.getElementById('msg');
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', e => {
         e.preventDefault();
         fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-          .then((response) => {
+          .then(response => {
             msg.innerHTML = 'Message Sent Successfully';
             setTimeout(function () {
               msg.innerHTML = '';
             }, 5000);
             form.reset();
           })
-          .catch((error) => console.error('Error!', error.message));
+          .catch(error => console.error('Error!', error.message));
       });
     </script>
   </body>
