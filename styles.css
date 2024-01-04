@@ -115,7 +115,7 @@ section.in-view .content {
 #intro::before {
   background-image: url('/assets/bg.jpg');
   background-position: right bottom;
-  background-size: min(120%, 1200px);
+  background-size: min(120%, 1000px);
   color: #f3d0fc;
   transition: background-position 1s;
 }
@@ -248,7 +248,7 @@ nav li:last-child {
 
 #bass::before {
   background-size: contain;
-  background-position: -80px 20px;
+  background-position: 0px 20px;
   background-image: url('/assets/bg2.jpg');
   color: rgb(240, 240, 240);
 }
@@ -367,13 +367,26 @@ p {
 }
 /* Contact Section */
 
-#contact {
+#about::before {
+  background-image: url('/assets/bg3.jpg');
+  background-size: min(120%, 1200px);
+  background-position: right bottom;
+  z-index: -1;
+  background-color: rgba(1, 1, 1, 255);
+}
+#about p {
+  max-width: 48ch;
+  font-size: 24px;
+  background-color: rgba(1, 1, 1, 0.5);
+  /* border-radius: 20px; */
+}
+#contact::before {
   background-color: rgba(4, 7, 12, 255);
   background-image: url('/assets/bg_contact.JPG');
-  background-position: right 0px bottom 0px;
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
+  /* background-position: right 0px bottom 0px; */
+  /* background-attachment: fixed; */
+  /* background-size: contain; */
+  /* background-repeat: repeat; */
   color: rgb(240, 240, 240);
 }
 
@@ -442,6 +455,8 @@ textarea {
 .social-links {
   display: flex;
   gap: 1rem;
+  max-width: 20ch;
+  justify-content: center;
 }
 .social-links img {
   height: 50px;
@@ -462,17 +477,25 @@ textarea {
     align-self: flex-end;
     max-width: calc(500px - 2rem);
   }
+  #bass::before {
+    background-position: -80px 20px;
+  }
 }
 
 @media screen and (min-width: 1000px) {
   :root {
     font-size: calc(1.5 * var(--base-font-size));
   }
+  #intro .content {
+    margin: 50px;
+  }
 
   #bass .content {
     max-width: 50%;
   }
-
+  #bass::before {
+    background-position: 0px 20px;
+  }
   #bass .videos {
     display: flex;
     gap: 0.5rem;
