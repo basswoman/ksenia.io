@@ -486,6 +486,9 @@ textarea {
   :root {
     font-size: calc(1.5 * var(--base-font-size));
   }
+  section::before {
+    background-attachment: fixed;
+  }
   #intro .content {
     margin: 50px;
   }
