@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+body {
+  font-family: 'Outfit', serif;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #000000;
+  color: #ffffff;
+}
+h1 {
+  font-weight: 100;
+}
+.countdown-container {
+  text-align: center;
+}
+
+#countdown {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.time-box {
+  background: #000000;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 80px;
+}
+
+.time-box span {
+  font-size: 2rem;
+  display: block;
+}
+
+.time-box p {
+  margin: 0;
+  font-size: 1rem;
+}
