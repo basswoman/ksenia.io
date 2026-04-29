@@ -19,7 +19,7 @@ const SOUNDS = [
 ]
 
 export default function UXPage() {
-  const { t } = useLang()
+  const { t, lang } = useLang()
   const [pressed, setPressed] = useState(null)
 
   function triggerSound(key, src) {
@@ -32,7 +32,7 @@ export default function UXPage() {
     <>
       <LanguageSwitch />
       <section id="ux-section">
-        <a className="nav-link sub-back" href="/#sound">{t.ux.backLink}</a>
+        <a className="nav-link sub-back" href={lang === 'ru' ? '/ru#sound' : '/#sound'}>{t.ux.backLink}</a>
         <h2>{t.ux.title}</h2>
         <div className="content">
           <p className="section-blurb" style={{ marginBottom: '2rem' }}>

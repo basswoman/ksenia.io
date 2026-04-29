@@ -25,7 +25,7 @@ function playSound(key) {
 }
 
 export default function BikePage() {
-  const { t } = useLang()
+  const { t, lang } = useLang()
   const [pressed, setPressed] = useState(null)
 
   function triggerKey(key) {
@@ -44,7 +44,7 @@ export default function BikePage() {
     <>
       <LanguageSwitch />
       <section id="bike-section">
-        <a className="nav-link sub-back" href="/#sound">{t.bike.backLink}</a>
+        <a className="nav-link sub-back" href={lang === 'ru' ? '/ru#sound' : '/#sound'}>{t.bike.backLink}</a>
         <h2>{t.bike.title}</h2>
         <div className="content">
           <p className="section-blurb" style={{ marginBottom: '2rem' }}>

@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async'
+import { useLocation } from 'react-router-dom'
 import { useLang } from '../context/LanguageContext'
 
 const META = {
@@ -9,6 +10,7 @@ const META = {
     keywords:
       'bass player, bassist, bass guitar, sound designer, UX sound design, music teacher, bass lessons, music production lessons, Brooklyn, New York, NYC, session musician, music director, creative technologist',
     lang: 'en',
+    ogLocale: 'en_US',
   },
   ru: {
     title: 'Ксения Васильева — Бас-гитаристка, Саунд дизайнер и Преподаватель | Нью-Йорк',
@@ -17,6 +19,7 @@ const META = {
     keywords:
       'бас-гитаристка, бас-гитара, саунд дизайнер, UX звук, преподаватель музыки, уроки бас-гитары, уроки музыкального продакшена, музыкальный директор, Нью-Йорк, Бруклин, сессионный музыкант',
     lang: 'ru',
+    ogLocale: 'ru_RU',
   },
 }
 
@@ -45,21 +48,9 @@ const PERSON_SCHEMA = {
     'https://kseniia.bandcamp.com/',
   ],
   hasOccupation: [
-    {
-      '@type': 'Occupation',
-      name: 'Bass Player',
-      alternateName: 'Бас-гитаристка',
-    },
-    {
-      '@type': 'Occupation',
-      name: 'Sound Designer',
-      alternateName: 'Саунд дизайнер',
-    },
-    {
-      '@type': 'Occupation',
-      name: 'Music Teacher',
-      alternateName: 'Преподаватель музыки',
-    },
+    { '@type': 'Occupation', name: 'Bass Player', alternateName: 'Бас-гитаристка' },
+    { '@type': 'Occupation', name: 'Sound Designer', alternateName: 'Саунд дизайнер' },
+    { '@type': 'Occupation', name: 'Music Teacher', alternateName: 'Преподаватель музыки' },
   ],
   offers: {
     '@type': 'Service',
@@ -72,7 +63,16 @@ const PERSON_SCHEMA = {
 
 export default function SEO() {
   const { lang } = useLang()
+  const location = useLocation()
   const m = META[lang]
+
+  const canonical = `https://ksenia.io${location.pathname}`
+  const enUrl = location.pathname.startsWith('/ru')
+    ? `https://ksenia.io${location.pathname.slice(3) || '/'}`
+    : `https://ksenia.io${location.pathname}`
+  const ruUrl = location.pathname.startsWith('/ru')
+    ? `https://ksenia.io${location.pathname}`
+    : `https://ksenia.io/ru${location.pathname === '/' ? '' : location.pathname}`
 
   return (
     <Helmet>
@@ -81,20 +81,20 @@ export default function SEO() {
       <meta name="description" content={m.description} />
       <meta name="keywords" content={m.keywords} />
       <meta name="author" content="Ksenia Vasileva" />
-      <link rel="canonical" href="https://ksenia.io/" />
+      <link rel="canonical" href={canonical} />
 
       {/* hreflang */}
-      <link rel="alternate" hreflang="en" href="https://ksenia.io/" />
-      <link rel="alternate" hreflang="ru" href="https://ksenia.io/" />
-      <link rel="alternate" hreflang="x-default" href="https://ksenia.io/" />
+      <link rel="alternate" hreflang="en" href={enUrl} />
+      <link rel="alternate" hreflang="ru" href={ruUrl} />
+      <link rel="alternate" hreflang="x-default" href={enUrl} />
 
       {/* Open Graph */}
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://ksenia.io/" />
+      <meta property="og:url" content={canonical} />
       <meta property="og:title" content={m.title} />
       <meta property="og:description" content={m.description} />
       <meta property="og:image" content="https://ksenia.io/assets/main-pic.jpg" />
-      <meta property="og:locale" content={lang === 'ru' ? 'ru_RU' : 'en_US'} />
+      <meta property="og:locale" content={m.ogLocale} />
       <meta property="og:locale:alternate" content={lang === 'ru' ? 'en_US' : 'ru_RU'} />
 
       {/* Twitter */}

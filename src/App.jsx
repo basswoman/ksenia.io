@@ -10,16 +10,19 @@ import './styles/main.css'
 export default function App() {
   return (
     <HelmetProvider>
-      <LanguageProvider>
-        <SEO />
-        <BrowserRouter>
+      <BrowserRouter>
+        <LanguageProvider>
+          <SEO />
           <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/bike" element={<BikePage />} />
-            <Route path="/ux" element={<UXPage />} />
+            <Route path="/"        element={<MainPage />} />
+            <Route path="/ru"      element={<MainPage />} />
+            <Route path="/bike"    element={<BikePage />} />
+            <Route path="/ru/bike" element={<BikePage />} />
+            <Route path="/ux"      element={<UXPage />} />
+            <Route path="/ru/ux"   element={<UXPage />} />
           </Routes>
-        </BrowserRouter>
-      </LanguageProvider>
+        </LanguageProvider>
+      </BrowserRouter>
     </HelmetProvider>
   )
 }
